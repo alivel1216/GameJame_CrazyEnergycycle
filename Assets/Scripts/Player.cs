@@ -31,4 +31,9 @@ public class Player : MonoBehaviour
     {
         jugador.MovePosition(jugador.position + moveInput * velocidad * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+    }
 }
