@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float velocidad = 1f;
+    [SerializeField] public float speed = 3f;
     Rigidbody2D jugador;
     Vector2 moveInput;
     Animator playerAnim;
@@ -23,12 +23,12 @@ public class Player : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(moveX, moveY).normalized;
         playerAnim.SetFloat("Horizontal", moveX);
-        playerAnim.SetFloat("Horizontal", moveY);
-        playerAnim.SetFloat("Horizontal", moveInput.sqrMagnitude);
+        playerAnim.SetFloat("Vertical", moveY);
+        playerAnim.SetFloat("Speed", moveInput.sqrMagnitude);
         
     }
      private void FixedUpdate()
     {
-        jugador.MovePosition(jugador.position + moveInput * velocidad * Time.fixedDeltaTime);
+        jugador.MovePosition(jugador.position + moveInput * speed * Time.fixedDeltaTime);
     }
 }
