@@ -31,4 +31,14 @@ public class Player : MonoBehaviour
     {
         jugador.MovePosition(jugador.position + moveInput * speed * Time.fixedDeltaTime);
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "carro")
+        {
+            Destroy(GameObject.FindWithTag("carro"));
+
+        }
+
+    }
 }
