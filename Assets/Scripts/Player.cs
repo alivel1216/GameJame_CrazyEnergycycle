@@ -25,10 +25,16 @@ public class Player : MonoBehaviour
         playerAnim.SetFloat("Horizontal", moveX);
         playerAnim.SetFloat("Vertical", moveY);
         playerAnim.SetFloat("Speed", moveInput.sqrMagnitude);
+      
         
     }
      private void FixedUpdate()
     {
         jugador.MovePosition(jugador.position + moveInput * speed * Time.fixedDeltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("OnCollisionEnter2D");
     }
 }
