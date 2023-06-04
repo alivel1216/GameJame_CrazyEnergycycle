@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovimientoCarro : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float disappearTime = 7f;
+    [SerializeField] private float disappearTime = 10f;
     private float elapsedTime = -5f;
 
     void Update()
@@ -17,17 +17,9 @@ public class MovimientoCarro : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
         // Si se ha alcanzado el tiempo de desaparición, destruir el objeto sprite
-       
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
+        if (elapsedTime >= disappearTime)
         {
             Destroy(gameObject);
-
         }
-
     }
-
 }

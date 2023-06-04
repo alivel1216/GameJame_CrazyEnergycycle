@@ -17,15 +17,9 @@ public class MovimientoCarr : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
         // Si se ha alcanzado el tiempo de desaparición, destruir el objeto sprite
-
-    }
-    void OnTriggerEnterd2D(Collider2D collider)
-    {
-        if(collider.gameObject.tag == "carro")
+        if (elapsedTime >= disappearTime)
         {
             Destroy(gameObject);
-
         }
-
     }
 }

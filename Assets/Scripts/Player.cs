@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagment;
 
 public class Player : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "carro")
         {
             Destroy(GameObject.FindWithTag("carro"));
-
+//            SceneManager.LoadScene("3");
         }
 
     }
